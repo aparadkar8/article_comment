@@ -33,7 +33,7 @@ class CommentsController < ApplicationController
     end
   end
 
-
+# action for comments destorying
   def destroy
     @article = Article.find(params[:article_id])
     @comment = @article.comments.find(params[:id])
@@ -44,5 +44,5 @@ class CommentsController < ApplicationController
     def comment_params
       params.require(:comment).permit(:commenter, :body)
     end
-    
+
 end
