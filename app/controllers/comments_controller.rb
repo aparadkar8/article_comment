@@ -39,7 +39,7 @@ class CommentsController < ApplicationController
     @comment = @article.comments.find(params[:id])
     @comment.destroy
   end
-
+#private methods
   private
     def comment_params
       params.require(:comment).permit(:commenter, :body)
