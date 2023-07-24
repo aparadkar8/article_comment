@@ -30,8 +30,7 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
 
-    @article.update(article_params)
-      
+    @article.update(article_params) 
   end
 
   def destroy
