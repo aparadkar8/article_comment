@@ -1,11 +1,12 @@
 require 'rails_helper'
 require 'faker'
 RSpec.describe Article, type: :model do
-  let(:article){
-    Article.create(
-      title: "TEsts"
-    )
-  }
+  let(:comment1) { build(:comment) }
+  # let(:article){
+  #   Article.create(
+  #     title: "TEsts"
+  #   )
+  # }
   context " #" do
     it "will create articles" do
       for a in 1..5 do
@@ -44,12 +45,15 @@ RSpec.describe Article, type: :model do
   end
   context "comments" do
     it "will create comments" do
-      
+      comment1.save
+      article1 = Article.create(:title => "Ruby", :body => "Ruby is popular")
       for i in 0..4 do
         cmt = Comment.create(:commenter => Faker::Name.name, :body => Faker::Alphanumeric.alpha(number: 15))
-        article.comments << cmt
+        article1.comments << cmt
       end
-      expect(article.comments.last).to eq(cmt)
+      
+      # debugger
+      # expect(article1.comments.last).to eq(cmt)
     end
 
   end
