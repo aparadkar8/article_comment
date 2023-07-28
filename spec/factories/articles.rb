@@ -3,5 +3,4 @@ FactoryBot.define do
     title {'Sample'}
     body {'Randomm'}
   end
-end 
-
+end

@@ -1,12 +1,7 @@
 require 'rails_helper'
 require 'faker'
 RSpec.describe Article, type: :model do
-  let(:comment1) { build(:comment) }
-  # let(:article){
-  #   Article.create(
-  #     title: "TEsts"
-  #   )
-  # }
+  let!(:comment1) { build(:comment) }
   context " #" do
     it "will create articles" do
       for a in 1..5 do
@@ -50,11 +45,11 @@ RSpec.describe Article, type: :model do
       for i in 0..4 do
         cmt = Comment.create(:commenter => Faker::Name.name, :body => Faker::Alphanumeric.alpha(number: 15))
         article1.comments << cmt
-      end
-      
-      # debugger
-      # expect(article1.comments.last).to eq(cmt)
+      end 
     end
+  end
 
+  describe 'validations' do
+    it { should validate_length_of(:title)}
   end
 end

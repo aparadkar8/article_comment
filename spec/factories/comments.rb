@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :comment do
-    association :article, factory: :article
+    association :article
     commenter {'Raj'}
     body {'Raj Ratan Bus service'}
   end
