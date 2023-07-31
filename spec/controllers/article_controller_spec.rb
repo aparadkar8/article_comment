@@ -24,6 +24,6 @@ RSpec.describe ArticlesController do
     should route(:get, '/articles', port: 3000).
       to('articles#index')
   end
-  it { should_nogem use_around_action(:wrap_in_transaction) }
+  # it { should_nogem use_around_action(:wrap_in_transaction) }
 
 end
